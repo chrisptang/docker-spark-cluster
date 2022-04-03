@@ -20,10 +20,10 @@ services:
       - spark-master
     environment:
       - SPARK_MASTER=spark://spark-master:7077
-      - SPARK_WORKER_CORES=1
-      - SPARK_WORKER_MEMORY=1G
-      - SPARK_DRIVER_MEMORY=1G
-      - SPARK_EXECUTOR_MEMORY=1G
+      - SPARK_WORKER_CORES=2
+      - SPARK_WORKER_MEMORY=2G
+      - SPARK_DRIVER_MEMORY=4G
+      - SPARK_EXECUTOR_MEMORY=2G
       - SPARK_WORKLOAD=worker
       - SPARK_LOCAL_IP=spark-worker-a
     volumes:
@@ -38,10 +38,10 @@ services:
       - spark-master
     environment:
       - SPARK_MASTER=spark://spark-master:7077
-      - SPARK_WORKER_CORES=1
-      - SPARK_WORKER_MEMORY=1G
-      - SPARK_DRIVER_MEMORY=1G
-      - SPARK_EXECUTOR_MEMORY=1G
+      - SPARK_WORKER_CORES=2
+      - SPARK_WORKER_MEMORY=2G
+      - SPARK_DRIVER_MEMORY=4G
+      - SPARK_EXECUTOR_MEMORY=2G
       - SPARK_WORKLOAD=worker
       - SPARK_LOCAL_IP=spark-worker-b
     volumes:
@@ -49,6 +49,7 @@ services:
         - ./data:/opt/spark-data
   demo-database:
     image: postgres:11.7-alpine
+    container_name: demo-database
     ports: 
       - "5432:5432"
     environment: 
