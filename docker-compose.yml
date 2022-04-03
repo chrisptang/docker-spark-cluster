@@ -48,10 +48,10 @@ services:
         - ./apps:/opt/spark-apps
         - ./data:/opt/spark-data
   demo-database:
-    image: postgres:11.7-alpine
+    image: postgres:10
     container_name: demo-database
     ports: 
-      - "5432:5432"
+      - "5430:5432"
     environment: 
       - POSTGRES_PASSWORD=casa1234
 
